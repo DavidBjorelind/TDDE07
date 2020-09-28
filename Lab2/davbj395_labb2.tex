@@ -1,0 +1,372 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={davbj395\_labb2.R},
+            pdfauthor={davidbjorelind},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{davbj395\_labb2.R}
+\author{davidbjorelind}
+\date{2020-04-27}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(mvtnorm)}
+
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"TempLinkoping.txt"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+\NormalTok{time=}\StringTok{ }\NormalTok{data[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{temp=}\StringTok{ }\NormalTok{data[,}\DecValTok{2}\NormalTok{]}
+\NormalTok{n <-}\StringTok{ }\DecValTok{366}
+
+ \CommentTok{#------------ 1a) -------------#}
+\CommentTok{# Getting data from the file}
+\CommentTok{# mu is the mu_0 for the beta values}
+\CommentTok{# mu1 affects the height, mu2 shifts the temperature graph, mu3 affects the curvature}
+\NormalTok{mu =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{100}\NormalTok{,}\OperatorTok{-}\DecValTok{100}\NormalTok{)}
+\CommentTok{# Larger omega creates small volatility}
+\NormalTok{omega =}\StringTok{ }\FloatTok{0.1}
+\NormalTok{I =}\KeywordTok{diag}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\NormalTok{omega=}\StringTok{ }\NormalTok{I }\OperatorTok{*}\NormalTok{omega}
+\CommentTok{# nu sets the amount of influence of the prior}
+\NormalTok{v=}\StringTok{ }\DecValTok{6}
+\NormalTok{sigma_}\DecValTok{2}\NormalTok{=}\StringTok{ }\DecValTok{1}
+
+\CommentTok{#Starta med givna värden - prior val }
+\CommentTok{#100 sample från inv chi 2 - sätter in i ovan uttryck - multiplicerar  över en normalfördelning. }
+\CommentTok{#Använder alla draws i parametrarna }
+\CommentTok{#Prioir väljs baseras på kunskap }
+
+\CommentTok{#100 sigma}
+\NormalTok{nDraws=}\DecValTok{100}
+
+\CommentTok{# Making draws from Inv-chi2}
+\NormalTok{draws=}\StringTok{ }\KeywordTok{rchisq}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ nDraws, }\DataTypeTok{df=}\NormalTok{v)}
+\CommentTok{#Convert to Inv-chi2 dist.}
+\NormalTok{sample_var =}\StringTok{ }\NormalTok{sigma_}\DecValTok{2}
+\NormalTok{sigma_sq=(v)}\OperatorTok{*}\NormalTok{sample_var}\OperatorTok{/}\NormalTok{draws}
+
+\CommentTok{# Making draw som normal dist. beta given sigma2}
+\CommentTok{#loop for each sigma_sq}
+
+\CommentTok{#get temp for each sample of beta}
+\CommentTok{#all curves in same plot-- see which ranges of values }
+\CommentTok{#See if the temperatures looks reasonable!}
+\CommentTok{#don't compare with data given }
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## null device 
+##           1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (sigma }\ControlFlowTok{in}\NormalTok{ sigma_sq) \{}
+\NormalTok{  beta =}\StringTok{ }\KeywordTok{rmvnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =}\NormalTok{ mu, sigma}\OperatorTok{*}\KeywordTok{solve}\NormalTok{(omega)) }
+\NormalTok{  time_series =}\StringTok{ }\NormalTok{beta[,}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{beta[,}\DecValTok{2}\NormalTok{]}\OperatorTok{*}\NormalTok{time}\OperatorTok{+}\NormalTok{beta[,}\DecValTok{3}\NormalTok{]}\OperatorTok{*}\NormalTok{time}\OperatorTok{^}\DecValTok{2}
+  \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{time, }\DataTypeTok{y=}\NormalTok{time_series,}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\DataTypeTok{ylim=} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{40}\NormalTok{,}\DecValTok{60}\NormalTok{), }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{, }\DataTypeTok{type =} \StringTok{'l'}\NormalTok{)}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{new =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calculating "weights",  mu_n and nu_n}
+\NormalTok{X =}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{, time, time}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\NormalTok{Y =}\StringTok{ }\NormalTok{temp}
+
+\NormalTok{beta_hat =}\StringTok{ }\KeywordTok{solve}\NormalTok{(}\KeywordTok{t}\NormalTok{(X)}\OperatorTok{%*%}\NormalTok{X)}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(X)}\OperatorTok{%*%}\NormalTok{Y}
+\NormalTok{mu_n =}\StringTok{ }\KeywordTok{solve}\NormalTok{(}\KeywordTok{t}\NormalTok{(X) }\OperatorTok{%*%}\StringTok{ }\NormalTok{X}\OperatorTok{+}\NormalTok{omega) }\OperatorTok{%*%}\StringTok{ }\NormalTok{(}\KeywordTok{t}\NormalTok{(X) }\OperatorTok{%*%}\StringTok{ }\NormalTok{X }\OperatorTok{%*%}\StringTok{ }\NormalTok{beta_hat}\OperatorTok{+}\NormalTok{omega}\OperatorTok{%*%}\NormalTok{mu)}
+\NormalTok{omega_n =}\StringTok{ }\KeywordTok{t}\NormalTok{(X) }\OperatorTok{%*%}\StringTok{ }\NormalTok{X}\OperatorTok{+}\NormalTok{omega}
+\NormalTok{v_n =}\StringTok{ }\NormalTok{v }\OperatorTok{+}\StringTok{ }\KeywordTok{length}\NormalTok{(time)}
+\NormalTok{sigma_}\DecValTok{2}\NormalTok{_n =}\StringTok{ }\NormalTok{(v}\OperatorTok{*}\NormalTok{sigma_}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{(}\KeywordTok{t}\NormalTok{(Y) }\OperatorTok{%*%}\StringTok{ }\NormalTok{Y }\OperatorTok{+}\StringTok{ }\KeywordTok{t}\NormalTok{(mu) }\OperatorTok{%*%}\StringTok{ }\NormalTok{omega }\OperatorTok{%*%}\StringTok{ }\NormalTok{mu }\OperatorTok{-}\StringTok{ }\KeywordTok{t}\NormalTok{(mu_n) }\OperatorTok{%*%}\StringTok{ }\NormalTok{omega_n }\OperatorTok{%*%}\StringTok{ }\NormalTok{mu_n))}\OperatorTok{/}\NormalTok{v_n}
+
+\CommentTok{# Making draws from Inv-chi2}
+\NormalTok{draws_post=}\StringTok{ }\KeywordTok{rchisq}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ nDraws, }\DataTypeTok{df=}\NormalTok{v_n)}
+\CommentTok{#Convert to Inv-chi2 dist.}
+\NormalTok{sigma_sq_post=(v_n)}\OperatorTok{*}\NormalTok{sigma_}\DecValTok{2}\NormalTok{_n}\OperatorTok{/}\NormalTok{draws_post}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in (v_n) * sigma_2_n/draws_post: Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Calculating marginal distributions for beta and sigma2 and showing them in histograms}
+\NormalTok{beta_post_}\DecValTok{1}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{beta_post_}\DecValTok{2}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{beta_post_}\DecValTok{3}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (sigma }\ControlFlowTok{in}\NormalTok{ sigma_sq_post) \{}
+\NormalTok{  beta_post =}\StringTok{ }\KeywordTok{rmvnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =}\NormalTok{ mu_n, sigma}\OperatorTok{*}\KeywordTok{solve}\NormalTok{(omega_n)) }
+\NormalTok{  beta_post_}\DecValTok{1}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(beta_post_}\DecValTok{1}\NormalTok{, beta_post[,}\DecValTok{1}\NormalTok{])}
+\NormalTok{  beta_post_}\DecValTok{2}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(beta_post_}\DecValTok{2}\NormalTok{, beta_post[,}\DecValTok{2}\NormalTok{])}
+\NormalTok{  beta_post_}\DecValTok{3}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(beta_post_}\DecValTok{3}\NormalTok{, beta_post[,}\DecValTok{3}\NormalTok{])}
+\NormalTok{\}}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(beta_post_}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(beta_post_}\DecValTok{2}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(beta_post_}\DecValTok{3}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(sigma_sq_post)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{davbj395_labb2_files/figure-latex/- 1b}
+-------------\#-1.pdf)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Scatter plot of the temperature}
+\NormalTok{time_series_median =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{tails =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{, }\KeywordTok{length}\NormalTok{(time))}
+
+\ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in}\NormalTok{ time) \{}
+\NormalTok{  time_series_post =}\KeywordTok{c}\NormalTok{()}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(beta_post_}\DecValTok{1}\NormalTok{)) \{}
+\NormalTok{    series_day =}\StringTok{ }\NormalTok{beta_post_}\DecValTok{1}\NormalTok{[i] }\OperatorTok{+}\StringTok{ }\NormalTok{beta_post_}\DecValTok{2}\NormalTok{[i]}\OperatorTok{*}\NormalTok{t }\OperatorTok{+}\StringTok{ }\NormalTok{beta_post_}\DecValTok{3}\NormalTok{[i]}\OperatorTok{*}\NormalTok{t}\OperatorTok{^}\DecValTok{2}
+\NormalTok{    time_series_post =}\StringTok{ }\KeywordTok{c}\NormalTok{(time_series_post, series_day)}
+\NormalTok{  \}}
+\NormalTok{  tails[,(}\KeywordTok{match}\NormalTok{((t), time))] =}\StringTok{ }\KeywordTok{quantile}\NormalTok{(time_series_post, }\KeywordTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{))}
+\NormalTok{  time_series_median =}\StringTok{ }\KeywordTok{c}\NormalTok{(time_series_median, }\KeywordTok{median}\NormalTok{(time_series_post))}
+\NormalTok{\}}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ time, }\DataTypeTok{y =}\NormalTok{ time_series_median, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{15}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{type =} \StringTok{'l'}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{new =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time, }\DataTypeTok{y =}\NormalTok{ temp, }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{15}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{new =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time, }\DataTypeTok{y =}\NormalTok{ tails[}\DecValTok{1}\NormalTok{,], }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{15}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{new =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time, }\DataTypeTok{y =}\NormalTok{ tails[}\DecValTok{2}\NormalTok{,], }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{15}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{davbj395_labb2_files/figure-latex/- 1b}
+-------------\#-2.pdf)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Max value when derivative is zero. --> temp ' = 0 = -B1 /(2* B2)}
+
+\NormalTok{x_hat =}\StringTok{ }\DecValTok{-1} \OperatorTok{*}\StringTok{ }\NormalTok{beta_post_}\DecValTok{2} \OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{2}\OperatorTok{*}\StringTok{ }\NormalTok{beta_post_}\DecValTok{3}\NormalTok{) }
+\KeywordTok{hist}\NormalTok{(x_hat, }\DataTypeTok{breaks=}\DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{davbj395_labb2_files/figure-latex/1c}
+-------------\#-1.pdf)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x_hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 0.5395648 0.5415165 0.5459070 0.5418078 0.5377154 0.5445112 0.5439244
+##   [8] 0.5473102 0.5310174 0.5450583 0.5373980 0.5456291 0.5427829 0.5476559
+##  [15] 0.5390222 0.5359843 0.5347269 0.5464241 0.5340425 0.5357134 0.5423792
+##  [22] 0.5446051 0.5403911 0.5523145 0.5290468 0.5331813 0.5563168 0.5500089
+##  [29] 0.5421625 0.5517168 0.5415930 0.5487714 0.5468727 0.5384409 0.5439450
+##  [36] 0.5489481 0.5448992 0.5419502 0.5390566 0.5412810 0.5470350 0.5488854
+##  [43] 0.5430100 0.5372735 0.5412132 0.5424670 0.5412277 0.5431705 0.5468663
+##  [50] 0.5501734 0.5456475 0.5451191 0.5444437 0.5418053 0.5489583 0.5373822
+##  [57] 0.5424093 0.5408124 0.5475636 0.5438473 0.5457107 0.5459405 0.5356855
+##  [64] 0.5507012 0.5324659 0.5362819 0.5412383 0.5442510 0.5438208 0.5448489
+##  [71] 0.5475181 0.5391453 0.5391089 0.5333515 0.5448443 0.5403711 0.5437033
+##  [78] 0.5421694 0.5446252 0.5454368 0.5444178 0.5336268 0.5380000 0.5504469
+##  [85] 0.5379751 0.5426249 0.5348650 0.5443806 0.5361032 0.5405773 0.5499212
+##  [92] 0.5410517 0.5396258 0.5418345 0.5466382 0.5465710 0.5378916 0.5412748
+##  [99] 0.5428186 0.5501467
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Set ridge regression on prior, meaning mu0 = 0 and omega0 = large (lambda) in order to get more shrinkage and less variance.}
+\CommentTok{# This is equivalent to a penalized likelihood and less overfit.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{women <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"WomenWork.dat"}\NormalTok{, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{y =}\StringTok{ }\KeywordTok{as.vector}\NormalTok{(women[,}\DecValTok{1}\NormalTok{])}
+\NormalTok{X =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(women[,}\OperatorTok{-}\DecValTok{1}\NormalTok{])}
+\NormalTok{nPara=}\KeywordTok{dim}\NormalTok{(X)[}\DecValTok{2}\NormalTok{]}
+
+\NormalTok{LogPostLogistic <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(beta,y,X,mu,sigma)\{}
+\NormalTok{  nPara <-}\StringTok{ }\KeywordTok{length}\NormalTok{(beta);}
+\NormalTok{  datamatrix <-}\StringTok{ }\NormalTok{X}\OperatorTok{%*%}\NormalTok{beta;}
+  
+  \CommentTok{#Ln of likelihood}
+\NormalTok{  logLik <-}\StringTok{ }\KeywordTok{sum}\NormalTok{( datamatrix}\OperatorTok{*}\NormalTok{y }\OperatorTok{-}\KeywordTok{log}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\KeywordTok{exp}\NormalTok{(datamatrix)));}
+  \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{abs}\NormalTok{(logLik) }\OperatorTok{==}\StringTok{ }\OtherTok{Inf}\NormalTok{) logLik =}\StringTok{ }\DecValTok{-20000}\NormalTok{; }\CommentTok{# Likelihood is not finite, stear the optimizer away from here!}
+  
+  \CommentTok{#Ln of prior}
+\NormalTok{  logPrior <-}\StringTok{ }\KeywordTok{dmvnorm}\NormalTok{(beta, }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,nPara,}\DecValTok{1}\NormalTok{), sigma, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{);}
+  \KeywordTok{return}\NormalTok{(logLik }\OperatorTok{+}\StringTok{ }\NormalTok{logPrior)}
+\NormalTok{\}}
+\CommentTok{#Starting values before optimization}
+\NormalTok{startVal <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,nPara)}
+\NormalTok{mu =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,nPara)}
+\NormalTok{sigma =}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\StringTok{ }\KeywordTok{diag}\NormalTok{(nPara)}
+\CommentTok{#This function returns optimal parameters and corresponding value of the function from these opti parameters}
+\CommentTok{#fnscale = -1 means we have max-problem (and not min)}
+\CommentTok{#Hessian = TRUE meaning we return the second derivate matrix:)}
+\NormalTok{OptimResults<-}\KeywordTok{optim}\NormalTok{(startVal,LogPostLogistic,}\DataTypeTok{gr=}\OtherTok{NULL}\NormalTok{,y,X,mu,sigma,}\DataTypeTok{method=}\KeywordTok{c}\NormalTok{(}\StringTok{"BFGS"}\NormalTok{), }
+                    \DataTypeTok{control=}\KeywordTok{list}\NormalTok{(}\DataTypeTok{fnscale=}\OperatorTok{-}\DecValTok{1}\NormalTok{),}\DataTypeTok{hessian=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{opti_beta =}\StringTok{ }\NormalTok{OptimResults}\OperatorTok{$}\NormalTok{par}
+\NormalTok{opti_val =}\StringTok{ }\NormalTok{OptimResults}\OperatorTok{$}\NormalTok{value}
+\NormalTok{opti_hes =}\StringTok{ }\OperatorTok{-}\KeywordTok{solve}\NormalTok{(OptimResults}\OperatorTok{$}\NormalTok{hessian)}
+
+\CommentTok{# Calculating credible inverval for NSmallChild}
+\NormalTok{nDraws =}\StringTok{ }\DecValTok{1000}
+\NormalTok{NSmallChild_beta_draws =}\StringTok{ }\KeywordTok{rmvnorm}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ nDraws, }\DataTypeTok{mean =}\NormalTok{ opti_beta, }\DataTypeTok{sigma =}\NormalTok{ opti_hes)[,}\DecValTok{7}\NormalTok{]}
+\NormalTok{NSmallChilld_quantile =}\StringTok{ }\KeywordTok{quantile}\NormalTok{(NSmallChild_beta_draws, }\KeywordTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{)) }\CommentTok{# [-2.1 ; -0.61]}
+
+\CommentTok{# Coefficient for NSmallChild is -1.36 which is in between the calculated inverval. Seems seasonable}
+\NormalTok{glmModel <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Work }\OperatorTok{~}\StringTok{ }\DecValTok{0} \OperatorTok{+}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ women, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Making the predictive function}
+\NormalTok{predict_work =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(feature_values, Ndraws, beta, sigma)\{}
+\NormalTok{  draws =}\StringTok{ }\KeywordTok{rmvnorm}\NormalTok{(}\DataTypeTok{n=}\NormalTok{ Ndraws, }\DataTypeTok{mean =}\NormalTok{ beta, }\DataTypeTok{sigma =}\NormalTok{ sigma)}
+\NormalTok{  work =}\StringTok{ }\KeywordTok{exp}\NormalTok{(feature_values }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(draws))}\OperatorTok{/}\NormalTok{(}\DecValTok{1}\OperatorTok{+}\KeywordTok{exp}\NormalTok{(feature_values }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(draws)))}
+  \KeywordTok{return}\NormalTok{(work)}
+\NormalTok{\}}
+\CommentTok{# Making predictive distribution for the sample women}
+\NormalTok{women =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, (}\DecValTok{10}\OperatorTok{/}\DecValTok{10}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{pred =}\StringTok{ }\KeywordTok{predict_work}\NormalTok{(women, }\DecValTok{1000}\NormalTok{, opti_beta, opti_hes)}
+\KeywordTok{hist}\NormalTok{(pred, }\DataTypeTok{xlab =} \StringTok{"Probability to work"}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Histogram of the probability distribution"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{davbj395_labb2_files/figure-latex/2b}
+--------------\#-1.pdf)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calculating distribution for posterior of }
+\NormalTok{binomial =}\StringTok{ }\DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)\{}
+\NormalTok{  pred =}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{predict_work}\NormalTok{(women, }\DecValTok{1000}\NormalTok{, opti_beta, opti_hes)}\OperatorTok{>}\FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{  binomial =}\StringTok{ }\NormalTok{binomial }\OperatorTok{+}\StringTok{ }\NormalTok{pred}
+\NormalTok{\}}
+\KeywordTok{hist}\NormalTok{(binomial, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{), }\DataTypeTok{main=}\StringTok{"Histogram for the number out of 10 women working"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{davbj395_labb2_files/figure-latex/2c}
+--------------\#-1.pdf)
+
+\end{document}
